@@ -11,8 +11,8 @@ const ProductPage = () => {
     const product = products.find((item) => item.id === Number(id));
 
     const handleAddToCart = () => {
-        addToCart(product); 
-        alert(`Товар "${product.name}" успешно добавлен в корзину!`); 
+        addToCart(product);
+        alert(`Товар "${product.name}" успешно добавлен в корзину!`);
     };
 
     if (!product) return <h1 className='text-center my-5'>Product not found</h1>;
@@ -27,7 +27,14 @@ const ProductPage = () => {
                             src={product.product_img}
                             alt={product.name}
                             className='card-img-top'
-                            style={{ height: '350px', objectFit: 'cover' }}
+                            style={{
+                                height: '300px',
+                                objectFit: 'cover',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            }}
                         />
                         <div className='card-body'>
                             <h5 className='card-title text-primary'>Описание:</h5>
