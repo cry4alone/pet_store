@@ -1,4 +1,5 @@
 # Good Pet ✨
+![Иллюстрация к проекту](https://github.com/cry4alone/pet_store/blob/master/src/assets/logo.png)
 
 **Good Pet** — это современный интернет-магазин, созданный с использованием **React** и **Vite**, для всех, кто заботится о своих питомцах.
 
@@ -55,7 +56,7 @@
 ---
 
 ## Структура проекта
-
+```
 rusal/
 ├── src/
 │   ├── app/       # App.jsx и глобальные стили
@@ -67,4 +68,5 @@ rusal/
 ├── vite.config.js        # Конфигурация Vite
 ├── package.json          # Зависимости и скрипты
 └── README.md             # Этот файл
+```
 
