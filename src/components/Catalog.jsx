@@ -1,12 +1,13 @@
-import React, { useState, useContext, useEffect } from 'react';
-import ProductPreview from '../components/ProductPreview';
+import React, { useState, useContext, useEffect, Suspense } from 'react';
 import { SupabaseContext } from '../contexts/SupabaseContext';
+
+const ProductPreview = React.lazy(() => import('../components/ProductPreview'));
 
 const Catalog = () => {
     const { supabase, products, setProducts } = useContext(SupabaseContext);
-    const [searchQuery, setSearchQuery] = useState(''); 
-    const [selectedCategory, setSelectedCategory] = useState(''); 
-    const [categories, setCategories] = useState([]); 
+    const [searchQuery, setSearchQuery] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState('');
+    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
         const getProducts = async () => {
@@ -92,11 +93,13 @@ const Catalog = () => {
             </div>
 
             <div className='container d-flex flex-wrap justify-content-center'>
-                {filteredProducts.length > 0 ? (
-                    filteredProducts.map((product) => <ProductPreview key={product.id} product={product} />)
-                ) : (
-                    <p className='text-center'>Ничего не найдено.</p>
-                )}
+                <Suspense fallback={<div><h1>Загрузка</h1></div>}>
+                    {filteredProducts.length > 0 ? (
+                        filteredProducts.map((product) => <ProductPreview key={product.id} product={product} />)
+                    ) : (
+                        <p className='text-center'>Ничего не найдено.</p>
+                    )}
+                </Suspense>
             </div>
         </>
     );

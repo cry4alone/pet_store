@@ -11,11 +11,11 @@ const ProductPreview = ({ product }) => {
         <div
             onClick={openProduct}
             style={{ cursor: 'pointer' }}
-            className='col-6 col-md-4 col-lg-3 p-3 d-flex flex-column align-items-center bg-body m-4 rounded-3 shadow-sm'
+            className='col-6 col-md-4 col-lg-3 p-3 d-flex flex-column align-items-center justify-content-center bg-body m-4 rounded-3 shadow-sm'
         >
             <h5 className='text-center text-wrap'>{product.name}</h5>
             <img src={product.product_img} alt={product.name} className='img-fluid rounded mt-2' />
-            <p className='mt-2 mb-0'>Price: {product.price} ₽</p>
+            <p className='text mt-auto mb-0 lead'>Цена: {product.price} ₽</p>
         </div>
     );
 };
