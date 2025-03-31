@@ -14,7 +14,7 @@ import { ThemeProvider } from '../contexts/ThemeContext';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { SupabaseProvider } from '../contexts/SupabaseContext';
 import { AuthProvider } from '../contexts/AuthContext';
-
+//test commit
 function App() {
     return (
         <ThemeProvider>
